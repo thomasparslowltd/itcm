@@ -1,0 +1,8 @@
+<div class="itcqpicture" style="float: {{ picture.positon}}; clear: both"> 
+{% if picture.url %}<a href="{{ picture.url }}">{% endif %}
+<img {% if picture.alt %}alt="{{ picture.alt }}" {% endif %}src="{{ picture.image.url }}" />
+{% if picture.url %}</a>{% endif %}
+{% if picture.caption %}
+<span class="caption" style="width: {{picture.image.width}}px">{{picture.caption}}</span>
+{% endif %}
+</div>

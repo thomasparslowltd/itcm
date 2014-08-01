@@ -1,0 +1,16 @@
+{% if sponsor_list %}
+<div id="sponsors">
+<span class="label">Funding:</span> 
+<span class="logos">
+{% for sponsor in sponsor_list %}
+{% if sponsor.link %}
+<a href="{{sponsor.link}}">
+{% endif %}
+<img alt="{{sponsor.name}}" title="{{sponsor.name}}" width="{{sponsor.logo.width}}" height="{{sponsor.logo.height}}" src="{{sponsor.logo.url}}" />
+{% if sponsor.link %}
+</a>
+{% endif %}
+{% endfor %}
+</span>
+</div>
+{% endif %}

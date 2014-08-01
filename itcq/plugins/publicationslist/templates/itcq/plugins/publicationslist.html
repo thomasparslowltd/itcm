@@ -1,0 +1,20 @@
+<ul class="publicationslist">
+{% for publication in publication_list %}
+<li>
+  {% if publication.link %}
+  <a class="reftextlink" href="{{publication.link}}">
+  {% endif %}
+  <span class="ref">{{publication.text|linebreaksbr}}</span>
+  {% if publication.link %}
+  </a>
+  {% endif %}
+  {% if publication.pdf %}
+  <a class="downloadpdf" href="{{ publication.pdf.url }}">Download PDF</a>
+  {% endif %}
+  {% if publication.bibtex %}
+  <a class="showbibtex" onclick="javascript:document.getElementById('bibtex-{{publication.id}}').style.display='block'; this.style.display='none';" href="#">Show BibTeX</a>
+  <pre id="bibtex-{{publication.id}}" style="display: none">{{publication.bibtex}}</pre>
+  {% endif %}
+</li>
+{% endfor %}
+</ul>

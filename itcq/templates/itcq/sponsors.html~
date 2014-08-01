@@ -1,0 +1,2 @@
+{% for sponsor in sponsor_list %}
+{% endfor %}

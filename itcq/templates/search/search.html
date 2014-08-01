@@ -1,0 +1,24 @@
+{% extends 'itcq/base.html' %}
+
+{% block main %}
+    <h1>Search</h1>
+    
+    <form method="get" action=".">
+            {{ form.q }}
+                    <input type="submit" value="Search">
+        
+        {% if page.object_list %}
+            {% for result in page.object_list %}
+            <a href="{{ result.object.get_absolute_url}}"><h2>{{ result.object.get_page_title }}</h2></a>
+                <p>
+                  {{ result.object.get_meta_description|default:"No description available for this page"}}
+                </p>
+            {% endfor %}
+        {% else %}
+        {% ifequal request.GET.q "" %}
+        {% else %}
+            <p>No results found.</p>
+        {% endifequal %}
+        {% endif %}
+    </form>
+{% endblock %}

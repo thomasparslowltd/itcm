@@ -1,0 +1,13 @@
+<div class="researcharea">
+{% if instance.more_link %}<a href="{{ instance.more_link.get_absolute_url }}">{% endif %}
+<h2>{{ instance.heading }}</h2>
+{% if instance.image %}
+<img alt="" src="{{ instance.image.url }}" />
+{% endif %}
+{% if instance.more_link %}</a>{% endif %}
+<div class="body">
+{{ body|safe }}
+</div>
+{% if instance.more_link %}<a href="{{ instance.more_link.get_absolute_url }}" class="morelink"">Visit this Research Area...</a>{% endif %}
+</div>
+

@@ -1,0 +1,6 @@
+{{object.get_page_title}}
+{{object.get_meta_description}}
+{{object.get_meta_keywords}}
+{% for plugin in object.cmsplugin_set.all %}
+{{ plugin.render_plugin }}
+{% endfor %}

@@ -22,6 +22,5 @@ if settings.DEBUG:
 urlpatterns += patterns('',
     url(r'^', include('cms.urls')),
     url(r'^robots.txt', lambda request: HttpResponse("User-agent: *\nAllow: /\n")),
+    (r'^tinymce/', include('tinymce.urls')),
 )
-
-

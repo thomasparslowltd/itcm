@@ -50,6 +50,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'collected_static')
 
 # ADMIN_MEDIA_PREFIX = '/media/admin/'
 
@@ -110,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
 
     'djangocms_text_ckeditor',  # should be set before cms
     'cms',

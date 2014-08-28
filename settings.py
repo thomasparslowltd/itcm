@@ -133,7 +133,7 @@ INSTALLED_APPS = (
 
     # 'djangocms_picture',
     # 'djangocms_file',
-    'djangocms_flash',
+    # 'djangocms_flash',
     # 'djangocms_link',
 
     # 'cms.plugins.googlemap',

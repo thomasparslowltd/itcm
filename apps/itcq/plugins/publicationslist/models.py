@@ -1,11 +1,9 @@
 from django.conf import settings
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+
 from cms.models import CMSPlugin
 from publisher import Publisher
 
-if 'reversion' in settings.INSTALLED_APPS:
-    import reversion
 
 class PublicationList(CMSPlugin):
     """A list of references to published papers/books etc
@@ -27,5 +25,6 @@ class Publication(Publisher):
         return self.text
 
 if 'reversion' in settings.INSTALLED_APPS:
+    import reversion
     reversion.register(PublicationList, follow=["cmsplugin_ptr", "publication_set"])
     reversion.register(Publication)

@@ -1,11 +1,10 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
 from cms.models import CMSPlugin,Page
 from publisher import Publisher
 
-if 'reversion' in settings.INSTALLED_APPS:
-    import reversion
 
 class LinkList(CMSPlugin):
     """A list of links to CMS pages
@@ -34,5 +33,6 @@ class LinkListLink(Publisher):
         return self.link_text
 
 if 'reversion' in settings.INSTALLED_APPS:
+    import reversion
     reversion.register(LinkList, follow=["cmsplugin_ptr", "linklistlink_set"])
     reversion.register(LinkListLink)

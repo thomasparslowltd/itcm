@@ -164,26 +164,25 @@ CMS_TEMPLATES = (
     ('itcq/intmeeting.html', gettext('International Symposium on Cavity-QED')),
 )
 
-# CMS_PLACEHOLDER_CONF = {
-#     'right-column': {
-#         "plugins": ('FilePlugin','FlashPlugin','LinkPlugin','PicturePlugin','TextPlugin', 'SnippetsPlugin'),
-#         "extra_context": {"theme":"16_16"},
-#         "name":gettext("right column")
-#     },
-#
-#     'body': {
-#
-#         "extra_context": {"theme":"16_5"},
-#         "name":gettext("body"),
-#     },
-#     'fancy-content': {
-#         "plugins": ('TextPlugin', 'LinkPlugin'),
-#         "extra_context": {"theme":"16_11"},
-#         "name":gettext("fancy content"),
-#     },
-# }
+CMS_PLACEHOLDER_CONF = {
+    'right-column': {
+        "plugins": ('FilePlugin','FlashPlugin','LinkPlugin','PicturePlugin','TextPlugin', 'SnippetsPlugin'),
+        "extra_context": {"theme":"16_16"},
+        "name":gettext("right column")
+    },
 
-CMS_SOFTROOT = False
+    'body': {
+
+        "extra_context": {"theme":"16_5"},
+        "name":gettext("body"),
+    },
+    'fancy-content': {
+        "plugins": ('TextPlugin', 'LinkPlugin'),
+        "extra_context": {"theme":"16_11"},
+        "name":gettext("fancy content"),
+    },
+}
+
 CMS_MODERATOR = True
 CMS_REDIRECTS = True
 CMS_SEO_FIELDS = True
@@ -194,7 +193,7 @@ CMS_LANGUAGE_REDIRECT = False
 
 # CMS_USE_TINYMCE = True
 
-# CMS_SOFTROOT = True
+CMS_SOFTROOT = True
 
 TINYMCE_DEFAULT_CONFIG = {'theme': "advanced"}
 
@@ -212,14 +211,7 @@ HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
 HAYSTACK_WHOOSH_PATH = '/home/mkeller/whoosh/itcq_index'
 
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
-# from local_settings import *
-
-# SOUTH_MIGRATION_MODULES = {
-#     'cms': 'itcq.cms_migrations',
-# }
-
-from local_settings import *
+try:
+    from local_settings import *
+except ImportError:
+    pass

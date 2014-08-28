@@ -1,9 +1,10 @@
 import re
+from os.path import basename
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 from cms.models import CMSPlugin
-from os.path import basename
+
 
 class ITCQFlash(CMSPlugin):
     file = models.FileField(_('file'), upload_to=CMSPlugin.get_media_path, help_text=_('use swf file'))

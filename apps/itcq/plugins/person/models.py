@@ -1,11 +1,9 @@
 from django.conf import settings
 from django.db import models
-from cms.models import CMSPlugin,Page
-from publisher import Publisher
+
+from cms.models import CMSPlugin
 from tinymce.models import HTMLField
 
-if 'reversion' in settings.INSTALLED_APPS:
-    import reversion
 
 class Person(CMSPlugin):
     """
@@ -25,4 +23,5 @@ class Person(CMSPlugin):
         return self.name
 
 if 'reversion' in settings.INSTALLED_APPS:
+    import reversion
     reversion.register(Person)

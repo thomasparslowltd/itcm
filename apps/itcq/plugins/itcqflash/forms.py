@@ -1,8 +1,8 @@
 from django import forms
-from cms.plugins.flash.models import Flash
+from .models import ITCQFlash
 
 class FlashForm(forms.ModelForm):
     
     class Meta:
-        model = Flash
+        model = ITCQFlash
         exclude = ('page', 'position', 'placeholder', 'language', 'plugin_type')

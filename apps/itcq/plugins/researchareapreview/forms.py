@@ -1,8 +1,7 @@
 from django.forms.models import ModelForm
 from cms.models import Page
-# from cms.plugins.text.models import Text
-from itcq.plugins.researchareapreview.models import ResearchAreaPreview
-from django import forms
+
+from .models import ResearchAreaPreview
 
 
 class ResearchAreaPreviewForm(ModelForm):

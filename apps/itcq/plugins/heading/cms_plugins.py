@@ -1,15 +1,14 @@
-from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
-from django.utils.translation import ugettext_lazy as _
-from itcq.plugins.heading.models import SectionHeading
+
+from .models import SectionHeading
 from .forms import HeadingForm
 
-from django.contrib import admin
 
 class HeadingPlugin(CMSPluginBase):
     model = SectionHeading
-    name = "Section Heading"
+    name = _("Section Heading")
     render_template = "itcq/plugins/heading.html"
     form = HeadingForm
     

@@ -1,5 +1,3 @@
-from cms.utils import get_language_from_request
-# from cms.utils.moderator import get_page_model, get_title_model
 from django import template
 
 register = template.Library()
@@ -12,10 +10,7 @@ def sponsors():
 @register.inclusion_tag('cms/content.html', takes_context=True)
 def ancestor_title(context, level=0, var=None):
     request = context['request']
-    # PageModel = get_page_model(request)
-    # TitleModel = get_title_model(request)
     page = request.current_page
-    # lang = get_language_from_request(request)
 
     if page:
         ancestors = [page]
@@ -36,10 +31,7 @@ def ancestor_title(context, level=0, var=None):
 @register.inclusion_tag('cms/content.html', takes_context=True)
 def ancestor_slug(context, level=0):
     request = context['request']
-    # PageModel = get_page_model(request)
-    # TitleModel = get_title_model(request)
     page = request.current_page
-    # lang = get_language_from_request(request)
     if page:
         ancestors = [page]
         while ancestors[-1].parent:

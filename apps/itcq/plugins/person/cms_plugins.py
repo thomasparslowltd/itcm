@@ -13,6 +13,9 @@ class PersonPlugin(CMSPluginBase):
     render_template = "itcq/plugins/person.html"
     
     def render(self, context, instance, placeholder):
-        return {"person": instance}
+        context = super(PersonPlugin, self).render(
+            context, instance, placeholder)
+        context.update({"person": instance})
+        return context
     
 plugin_pool.register_plugin(PersonPlugin)

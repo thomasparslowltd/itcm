@@ -11,7 +11,7 @@ class ResearchAreaPreviewPlugin(TextPlugin):
     name = "Research Area Preview"
     form = ResearchAreaPreviewForm
     render_template = "cms/plugins/researchareapreview.html"
-    change_form_template = "admin/cms/page/plugin_change_form.html"
+    # change_form_template = "admin/cms/page/plugin_change_form.html"
 
     def render(self, context, instance, placeholder):
         context = super(ResearchAreaPreviewPlugin, self).render(context, instance, placeholder)

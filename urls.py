@@ -12,15 +12,16 @@ urlpatterns = patterns('',
 #    (r'^search/', include('haystack.urls')),
 )
 
+urlpatterns += patterns('',
+    url(r'^', include('cms.urls')),
+    url(r'^robots.txt', lambda request: HttpResponse("User-agent: *\nAllow: /\n")),
+    # (r'^tinymce/', include('tinymce.urls')),
+)
+
+
 if settings.DEBUG:
     urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     url(r'', include('django.contrib.staticfiles.urls')),
 ) + urlpatterns
-
-urlpatterns += patterns('',
-    url(r'^', include('cms.urls')),
-    url(r'^robots.txt', lambda request: HttpResponse("User-agent: *\nAllow: /\n")),
-    (r'^tinymce/', include('tinymce.urls')),
-)

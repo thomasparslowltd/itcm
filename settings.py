@@ -64,6 +64,14 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
+# STATICFILES_FINDERS = (
+#     "django.contrib.staticfiles.finders.FileSystemFinder",
+#     "django.contrib.staticfiles.finders.AppDirectoriesFinder")
+
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_DIR, 'apps', 'itcq', 'static'),
+# )
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.transaction.TransactionMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -88,7 +96,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
-    'django.core.context_processors.static',
+    "django.core.context_processors.static",
     "django.core.context_processors.debug",
 
     'sekizai.context_processors.sekizai',
@@ -123,10 +131,10 @@ INSTALLED_APPS = (
     'reversion',
     'south',
 
-    'djangocms_picture',
+    # 'djangocms_picture',
     # 'djangocms_file',
     'djangocms_flash',
-    'djangocms_link',
+    # 'djangocms_link',
 
     # 'cms.plugins.googlemap',
     # 'cms.plugins.snippet',
@@ -156,24 +164,24 @@ CMS_TEMPLATES = (
     ('itcq/intmeeting.html', gettext('International Symposium on Cavity-QED')),
 )
 
-CMS_PLACEHOLDER_CONF = {                        
-    'right-column': {
-        "plugins": ('FilePlugin','FlashPlugin','LinkPlugin','PicturePlugin','TextPlugin', 'SnippetsPlugin'),
-        "extra_context": {"theme":"16_16"},
-        "name":gettext("right column")
-    },
-    
-    'body': {
-        
-        "extra_context": {"theme":"16_5"},
-        "name":gettext("body"),
-    },
-    'fancy-content': {
-        "plugins": ('TextPlugin', 'LinkPlugin'),
-        "extra_context": {"theme":"16_11"},
-        "name":gettext("fancy content"),
-    },
-}
+# CMS_PLACEHOLDER_CONF = {
+#     'right-column': {
+#         "plugins": ('FilePlugin','FlashPlugin','LinkPlugin','PicturePlugin','TextPlugin', 'SnippetsPlugin'),
+#         "extra_context": {"theme":"16_16"},
+#         "name":gettext("right column")
+#     },
+#
+#     'body': {
+#
+#         "extra_context": {"theme":"16_5"},
+#         "name":gettext("body"),
+#     },
+#     'fancy-content': {
+#         "plugins": ('TextPlugin', 'LinkPlugin'),
+#         "extra_context": {"theme":"16_11"},
+#         "name":gettext("fancy content"),
+#     },
+# }
 
 CMS_SOFTROOT = False
 CMS_MODERATOR = True
@@ -184,9 +192,9 @@ CMS_PERMISSIONS = False
 
 CMS_LANGUAGE_REDIRECT = False
 
-CMS_USE_TINYMCE = True
+# CMS_USE_TINYMCE = True
 
-CMS_SOFTROOT = True
+# CMS_SOFTROOT = True
 
 TINYMCE_DEFAULT_CONFIG = {'theme': "advanced"}
 

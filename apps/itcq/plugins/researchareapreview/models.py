@@ -6,6 +6,7 @@ from django.utils.html import strip_tags
 # from django.utils.text import truncate_words
 # from cms.plugins.text.utils import plugin_admin_html_to_tags,\
 #     plugin_tags_to_admin_html
+from djangocms_text_ckeditor.models import AbstractText
 from djangocms_text_ckeditor.utils import (
     plugin_to_tag as plugin_admin_html_to_tags,
     plugin_tags_to_user_html as plugin_tags_to_admin_html)
@@ -23,10 +24,9 @@ def truncate_words(s, num, end_text='...'):
 truncate_words = allow_lazy(truncate_words, six.text_type)
 
 
-class ResearchAreaPreview(CMSPlugin):
+class ResearchAreaPreview(AbstractText):
     heading = models.CharField(_("heading"), max_length=256)
     image = models.ImageField(_("image"), upload_to=CMSPlugin.get_media_path, blank=True, null=True)
-    body = models.TextField(_("body"))
     more_link = models.ForeignKey(Page, verbose_name=_("Read more link"), help_text=_("Image, heading and the link at the bottom will all link to this page."), blank=True, null=True)
     
     def _set_body_admin(self, text):

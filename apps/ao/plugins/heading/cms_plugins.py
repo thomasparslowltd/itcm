@@ -12,6 +12,8 @@ class HeadingPlugin(CMSPluginBase):
     render_template = "ao/plugins/heading.html"
     
     def render(self, context, instance, placeholder):
-        return {"heading": instance.heading, "level": instance.heading_level, "link": instance.link}
+        context = super(HeadingPlugin, self).render(context, instance, placeholder)
+        context.update({"heading": instance.heading, "level": instance.heading_level, "link": instance.link})
+        return context
     
 plugin_pool.register_plugin(HeadingPlugin)

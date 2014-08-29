@@ -2,8 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from cms.models import CMSPlugin,Page
-from publisher import Publisher
+from cms.models import CMSPlugin, Page
 
 
 class LinkList(CMSPlugin):
@@ -11,8 +10,19 @@ class LinkList(CMSPlugin):
     """
     def __unicode__(self):
         return u" | ".join(map(unicode,list(self.linklistlink_set.all())))
-        
-class LinkListLink(Publisher):
+
+    def copy_relations(self, old_instance):
+        for link in old_instance.linklistlink_set.all():
+            new_link = LinkListLink()
+            new_link.linklist = self
+            new_link.link_text = link.link_text
+            new_link.description = link.description
+            new_link.page_link = link.page_link
+            new_link.url = link.url
+            new_link.save()
+
+
+class LinkListLink(models.Model):
     """
     A link to an other page or to an external website
     """

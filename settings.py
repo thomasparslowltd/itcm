@@ -139,7 +139,7 @@ INSTALLED_APPS = (
     # 'cms.plugins.googlemap',
     # 'cms.plugins.snippet',
     'itcq',
-    'ao',
+    # 'ao',
 
     'itcq.plugins.researchareapreview',
     'itcq.plugins.publicationslist',
@@ -151,8 +151,8 @@ INSTALLED_APPS = (
 #    'haystack',
 
 
-    'publisher', # post publisher
     'tinymce',
+    # 'publisher', # post publisher
 )
 
 CMS_TEMPLATES = (

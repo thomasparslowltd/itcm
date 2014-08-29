@@ -24,7 +24,7 @@ class PublicationListPlugin(CMSPluginBase):
         context = super(PublicationListPlugin, self).render(
             context, instance, placeholder)
         context.update(
-            {"publication_list": instance.publicationpublic_set.all().order_by("id")})
+            {"publication_list": instance.publication_set.all().order_by("id")})
         return context
     
 plugin_pool.register_plugin(PublicationListPlugin)

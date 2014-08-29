@@ -4,10 +4,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 from .models import LinkList, LinkListLink
+from .forms import LinkForm
 
 
 class LinkInlineAdmin(admin.StackedInline):
     model = LinkListLink
+    form = LinkForm
 
 class LinkListPlugin(CMSPluginBase):
     model = LinkList
@@ -22,7 +24,7 @@ class LinkListPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super(LinkListPlugin, self).render(
             context, instance, placeholder)
-        context.update({"links": instance.linklistlinkpublic_set.all()})
+        context.update({"links": instance.linklistlink_set.all()})
         return context
     
 plugin_pool.register_plugin(LinkListPlugin)

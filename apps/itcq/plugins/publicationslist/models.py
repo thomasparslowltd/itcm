@@ -2,7 +2,6 @@ from django.conf import settings
 from django.db import models
 
 from cms.models import CMSPlugin
-from publisher import Publisher
 
 
 class PublicationList(CMSPlugin):
@@ -10,8 +9,18 @@ class PublicationList(CMSPlugin):
     """
     def __unicode__(self):
         return u" | ".join(map(unicode,list(self.publication_set.all())))
+
+    def copy_relations(self, old_instance):
+        for publication in old_instance.publication_set.all():
+            new_publication = Publication()
+            new_publication.publicationlist = self
+            new_publication.text = publication.text
+            new_publication.link = publication.link
+            new_publication.pdf = publication.pdf
+            new_publication.bibtex = publication.bibtex
+            new_publication.save()
         
-class Publication(Publisher):
+class Publication(models.Model):
     """
     A published paper/book etc
     """

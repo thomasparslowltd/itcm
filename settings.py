@@ -7,7 +7,7 @@ os.sys.path.append(os.path.join(PROJECT_DIR, 'apps'))
 
 gettext = lambda s: s
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

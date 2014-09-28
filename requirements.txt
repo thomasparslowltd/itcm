@@ -31,3 +31,8 @@ django-tinymce==1.5.2
 # distribute==0.6.24
 # psycopg2==2.5.3
 # wsgiref==0.1.2
+
+Fabric==1.7.0
+supervisor==3.0
+gunicorn==0.14.6
+dj-static==0.0.5

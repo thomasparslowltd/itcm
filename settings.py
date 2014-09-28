@@ -11,7 +11,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+     ('Tom Parslow', 'tom@almostobsolete.net'),
 )
 
 MANAGERS = ADMINS
@@ -19,13 +19,22 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mkeller_itcq',
-        'USER': 'mkeller_itcq',
+        'NAME': 'mkeller_itcm',
+        'USER': 'mkeller_itcm',
         'PASSWORD': 'eye1cee2tee3queue4',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+ALLOWED_HOSTS = ["mkeller.webfactional.com", "itcm-sussex.org", "www.itcm-sussex.org", "itcm-sussex.com", "www.itcm-sussex.com"]
+
+EMAIL_HOST_PASSWORD = "9e32902ryf4"
+EMAIL_HOST_USER = "itcm"
+
+EMAIL_HOST = 'smtp.webfaction.com'
+DEFAULT_FROM_EMAIL = 'no-reply@itcm-sussex.org'
+SERVER_EMAIL = 'no-reply@itcm-sussex.org'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -45,12 +54,12 @@ SITE_ID = 1
 USE_I18N = False
 
 # Absolute path to the directory that holds media.
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, '../media/')
 #ADMIN_MEDIA_ROOT = os.path.join(PROJECT_DIR, '../admin_media/')
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'collected_static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, '..', 'collected_static')
 
 # ADMIN_MEDIA_PREFIX = '/media/admin/'
 

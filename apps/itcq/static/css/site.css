@@ -55,7 +55,7 @@ sup {
     height: 93px;
     margin-top: 15px;
     margin-left: 20px;
-    margin-bottom: 8px;
+    margin-bottom: -1px;
     float: left;
 }
 

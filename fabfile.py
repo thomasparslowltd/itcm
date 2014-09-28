@@ -42,12 +42,13 @@ def itcm():
     import settings
     env.settings = settings
     env.domain = "itcm-sussex.com"
-    env.app_name = "itcq" # Original name was itcq
+    #env.domain = "mkeller.webfactional.com"
+    env.app_name = "itcm" # Original name was itcq
     env.settings_module = "settings"
     _common()
 
 # Only one site so load its setting by default
-vamp()
+itcm()
     
 def webfaction_login():
   print "Logging in to webfaction"
@@ -281,10 +282,10 @@ def update():
         return
     query_webfaction()
     upload()
-    updatenpmpackages()
+    # updatenpmpackages()
     updatepackages()
     migratedb()
-    update_djstripe()
+    # update_djstripe()
     # updateredisconf()
     update_supervisord()
     collectstatic()

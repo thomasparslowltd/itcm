@@ -58,6 +58,8 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, '../media/')
 #ADMIN_MEDIA_ROOT = os.path.join(PROJECT_DIR, '../admin_media/')
 MEDIA_URL = '/media/'
 
+CMS_PAGE_MEDIA_PATH = "cms_page_media"
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, '..', 'collected_static')
 

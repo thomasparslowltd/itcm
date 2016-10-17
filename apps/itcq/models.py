@@ -11,7 +11,7 @@ class Sponsor(models.Model):
         return self.name
 
     def get_media_path(self, filename):
-        from cms import settings
+        from django.conf import settings
 
         today = datetime.date.today()
         return os.path.join(settings.CMS_PAGE_MEDIA_PATH, str(today.year), str(today.month), str(today.day), filename)
